@@ -25,6 +25,7 @@ const fetchDatum = async (offset) => {
  */
 const replaceNumber = (text) => {
   return text
+    .replace('打', '打つ')
     .replace('1)', '一から)')
     .replace('2)', '二から)')
     .replace('3)', '三から)')
