@@ -20,7 +20,6 @@ const fetchDatum = async (offset) => {
 };
 
 /**
- * 
  * @param {string} text e.g. ３四銀(45)
  */
 const replaceNumber = (text) => {
@@ -35,6 +34,13 @@ const replaceNumber = (text) => {
     .replace('7)', '七から)')
     .replace('8)', '八から)')
     .replace('9)', '九から)');
+};
+
+/**
+ * @param {string} text e.g. ３四銀blahblah
+ */
+const insertSpace = (text) => {
+  return text.substring(0, 2) + " " + text.substring(2, text.length);
 };
 
 const app = new Vue({
@@ -55,7 +61,7 @@ const app = new Vue({
       await this.fetchDatum();
     },
     toRenderedText(move, idx) {
-      return `${idx % 2 == 0 ? '先手' : '後手'} ${replaceNumber(move)}`
+      return `${idx % 2 == 0 ? '先手' : '後手'} ${insertSpace(replaceNumber(move))}`
     },
   },
 });
