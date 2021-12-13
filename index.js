@@ -1,4 +1,4 @@
-const WINDOW_SIZE = 3;
+const WINDOW_SIZE = 5;
 
 const fetchData = async (id) => {
   const { evals } = await fetch(`https://api.shogidb2.com/eval/${id}/default.json`).then(res => res.json());
